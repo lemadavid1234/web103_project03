@@ -4,11 +4,12 @@ import favicon from 'serve-favicon'
 import dotenv from 'dotenv'
 
 // import the router from your routes file
-
+import gymsRouter from './routes/gyms.js'
+import locationsRouter from './routes/locations.js'
 
 dotenv.config()
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 
 const app = express()
 
@@ -23,7 +24,8 @@ else if (process.env.NODE_ENV === 'production') {
 }
 
 // specify the api path for the server to use
-
+app.use('/api/gyms', gymsRouter)
+app.use('/api/locations', locationsRouter)
 
 if (process.env.NODE_ENV === 'production') {
     app.get('/*', (_, res) =>

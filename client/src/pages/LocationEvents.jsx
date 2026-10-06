@@ -1,36 +1,44 @@
 import React, { useState, useEffect } from 'react'
-import Event from '../components/Event'
+import Gym from '../components/Gym'
 import '../css/LocationEvents.css'
+import LocationsAPI from '../services/LocationsAPI'
 
-const LocationEvents = ({index}) => {
-    const [location, setLocation] = useState([])
-    const [events, setEvents] = useState([])
+const LocationEvents = ( {borough} ) => {
+    const [gyms, setGyms] = useState([])
+
+
+    useEffect(() => {
+        const loadGyms = async () => {
+            try {
+                const gymsData = await LocationsAPI.getGymsByLocation(borough)
+                setGyms(gymsData)
+            } catch (error) {
+                console.error(error)
+            }
+        }
+
+        loadGyms()
+    }, [borough])
 
     return (
         <div className='location-events'>
             <header>
-                <div className='location-image'>
-                    <img src={location.image} />
-                </div>
-
                 <div className='location-info'>
-                    <h2>{location.name}</h2>
-                    <p>{location.address}, {location.city}, {location.state} {location.zip}</p>
+                    <h2>{borough}</h2>
                 </div>
             </header>
 
             <main>
                 {
-                    events && events.length > 0 ? events.map((event, index) =>
-                        <Event
-                            key={event.id}
-                            id={event.id}
-                            title={event.title}
-                            date={event.date}
-                            time={event.time}
-                            image={event.image}
+                    gyms && gyms.length > 0 ? gyms.map((gym) =>
+                        <Gym
+                            key={gym.id}
+                            name={gym.name}
+                            address={gym.address}
+                            image_url={gym.image_url}
+                            website={gym.website}
                         />
-                    ) : <h2><i className="fa-regular fa-calendar-xmark fa-shake"></i> {'No events scheduled at this location yet!'}</h2>
+                    ) : <h2><i className="fa-regular fa-calendar-xmark fa-shake"></i> {'No gyms in this borough yet!'}</h2>
                 }
             </main>
         </div>
