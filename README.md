@@ -37,11 +37,14 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with Loom GIF tool here
-<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/6fb35234bcf24e599bdf044076a05634" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div>
+    <a href="https://www.loom.com/share/6fb35234bcf24e599bdf044076a05634">
+      <p>project_03 ・ Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/6fb35234bcf24e599bdf044076a05634">
+      <img style="max-width:300px;" src="https://www.loom.com/v1/videos/6fb35234bcf24e599bdf044076a05634/thumbnail.gif">
+    </a>
+</div>
 
 ## Notes
 
